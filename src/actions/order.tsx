@@ -9,7 +9,6 @@ import { z } from "zod";
 const emailSchema = z.string().email()
 const resend = new Resend(process.env.RESEND_API_KEY as string)
 
-
 export async function emailOrderHistory(prevState: unknown, formData: FormData): Promise<{ message?: string; error?: string }> {
     const result = emailSchema.safeParse(formData.get("email"))
 
